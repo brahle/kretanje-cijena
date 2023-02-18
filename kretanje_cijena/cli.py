@@ -4,8 +4,7 @@
 from brds import Fetcher as _Fetcher
 from brds import FileWriter as _FileWriter
 from brds import fload as _fload
-
-from .gunzip_importer import GunzipImporter as _GunzipImporter
+from brds import GunzipImporter as _GunzipImporter
 
 
 def main() -> None:  # pragma: no cover

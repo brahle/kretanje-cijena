@@ -32,7 +32,7 @@ def read_requirements(path):
 setup(
     name="kretanje_cijena",
     version=read("kretanje_cijena", "VERSION"),
-    description="Awesome kretanje_cijena created by brahle",
+    description="Preuzimanje i pohranjivanje podataka s kretanje_cijena",
     url="https://github.com/brahle/kretanje-cijena/",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
