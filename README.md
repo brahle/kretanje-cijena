@@ -16,6 +16,9 @@ pip install kretanje_cijena
 ## Usage
 
 ```py
+from brds import GunzipImporter
+
+data = GunzipImporter("https://kretanje-cijena.hr:50001").fetch("https://kretanje-cijena.hr:50001")
 ```
 
 ```bash
