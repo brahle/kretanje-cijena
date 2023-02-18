@@ -1,8 +1,11 @@
 """CLI interface for kretanje_cijena project.
 """
 
+from brds import Fetcher as _Fetcher
+from brds import FileWriter as _FileWriter
+from brds import fload as _fload
+
 from .gunzip_importer import GunzipImporter as _GunzipImporter
-from brds import Fetcher as _Fetcher, FileWriter as _FileWriter, fload as _fload
 
 
 def main() -> None:  # pragma: no cover

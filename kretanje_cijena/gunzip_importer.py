@@ -1,8 +1,8 @@
 from gzip import decompress as _decompress
 from json import loads as _loads
-from typing import Any as _Any, Dict as _Dict
+from typing import Any as _Any
+from typing import Dict as _Dict
 from urllib.parse import urljoin as _urljoin
-
 
 from brds import Importer as _Importer
 from requests import get as _get
