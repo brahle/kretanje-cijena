@@ -1,28 +1,26 @@
 """CLI interface for kretanje_cijena project.
-
-Be creative! do whatever you want!
-
-- Install click or typer and create a CLI app
-- Use builtin argparse
-- Start a web application
-- Import things from your .base module
 """
 
+from .gunzip_importer import GunzipImporter as _GunzipImporter
+from brds import Fetcher as _Fetcher, FileWriter as _FileWriter, fload as _fload
 
-def main():  # pragma: no cover
+
+def main() -> None:  # pragma: no cover
     """
     The main function executes on commands:
     `python -m kretanje_cijena` and `$ kretanje_cijena `.
 
-    This is your program's entry point.
-
-    You can change this function to do whatever you want.
-    Examples:
-        * Run a test suite
-        * Run a server
-        * Do some other stuff
-        * Run a command line application (Click, Typer, ArgParse)
-        * List all available tasks
-        * Run an application (Flask, FastAPI, Django, etc.)
     """
-    print("This will do something")
+    fetcher = _Fetcher(
+        _GunzipImporter("https://kretanje-cijena.hr:50001"),
+        _FileWriter.from_environment(),
+        ["/data/public"],
+        "kretanje-cijena",
+    )
+    fetcher.fetch()
+
+    data = _fload("kretanje-cijena/data/public")
+    for data_type, values in data.items():
+        print(data_type, len(values))
+        if len(values) > 0:
+            print(values[0].keys())
